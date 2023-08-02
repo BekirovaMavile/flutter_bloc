@@ -23,15 +23,15 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
-    // final counterBloc = CounterBloc()..add(CounterDecEvent());
+    final counterBloc = CounterBloc();
     // final userBloc = UserBloc();
     return MultiBlocProvider(
       providers: [
         BlocProvider<CounterBloc>(
-          create: (context) => CounterBloc(),
+          create: (context) => counterBloc,
         ),
       BlocProvider<UserBloc>(
-        create: (context) => UserBloc(),
+        create: (context) => UserBloc(counterBloc),
     ),
     ],
         child: Builder(
